@@ -28,7 +28,7 @@ public:
         
         for(auto x: prerequisites)
         {
-            adj[x[0]].push_back(x[1]);
+            adj[x[1]].push_back(x[0]);
         }
         
         vector<bool> vis(numCourses,false);
