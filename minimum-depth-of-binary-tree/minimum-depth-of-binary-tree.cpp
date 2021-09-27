@@ -13,10 +13,19 @@ class Solution {
 public:
     int minDepth(TreeNode* root) {
         int MinDepth = INT_MAX;
-        if(root == NULL) return 0;
-        if(!root->left && !root->right) return 1;
-        if(root->left) MinDepth = min(MinDepth, minDepth(root->left));
-        if(root->right) MinDepth = min(MinDepth, minDepth(root->right));
+        
+        if(root == NULL) 
+            return 0;
+        
+        if(!root->left && !root->right) 
+            return 1;
+        
+        if(root->left) 
+            MinDepth = min(MinDepth, minDepth(root->left));
+        
+        if(root->right) 
+            MinDepth = min(MinDepth, minDepth(root->right));
+        
         return MinDepth + 1;
     }
 };
