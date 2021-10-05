@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Top down
+    /*
     int dp[1002];
     int minCost(vector<int>& cost, int n)
     {
@@ -21,5 +23,20 @@ public:
         memset(dp,-1,sizeof(dp));
         int n = cost.size();
         return min(minCost(cost,n-1),minCost(cost,n-2));
+    }
+    */
+    
+    //Bottom Up
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> dp(n+2,0);
+        
+        for(int i=n-1;i>=0;i--)
+        {
+            dp[i]=cost[i]+min(dp[i+1],dp[i+2]);
+            
+        }
+        
+        return min(dp[0],dp[1]);
     }
 };
