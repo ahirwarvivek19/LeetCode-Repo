@@ -3,11 +3,11 @@ public:
     
     int rec(string word1,string word2,int i,int j,vector<vector<int>> &dp)
     {
-        if(i<0)
+        if(i==0)
         {
             return j;
         }
-        if(j<0)
+        if(j==0)
         {
             return i;
         }
@@ -16,7 +16,7 @@ public:
             return dp[i][j];
         }
         
-        if(word1[i]==word2[j])
+        if(word1[i-1]==word2[j-1])
         {
             return dp[i][j] = rec(word1,word2,i-1,j-1,dp);
         }
@@ -30,6 +30,6 @@ public:
         int n = word1.size();
         int m = word2.size();
         vector<vector<int>> dp(n+1,vector<int> (m+1,-1));
-        return rec(word1,word2,n-1,m-1,dp)+1;
+        return rec(word1,word2,n,m,dp);
     }
 };
