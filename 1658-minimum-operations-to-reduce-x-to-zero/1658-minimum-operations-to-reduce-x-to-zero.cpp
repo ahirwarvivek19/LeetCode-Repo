@@ -11,7 +11,7 @@ public:
         
         int l = 0,r = 0;
         int cs = 0;
-        while(r<n)
+        while(r<n&&l<n)
         {
             cs+=nums[r];
             
