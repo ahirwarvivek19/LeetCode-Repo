@@ -6,8 +6,8 @@ public:
         {
             return 0;
         }
-        if(r==1&&c==1)
-            return 2;
+        if(r==0&&c==0)
+            return 1;
         if(r==0)
             return 1;
         if(c==0)
