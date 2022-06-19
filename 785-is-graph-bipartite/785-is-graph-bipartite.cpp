@@ -1,23 +1,6 @@
 class Solution {
 public:
-    bool f(int node,int par,vector<vector<int>>& adj,vector<int> &vis,int color)
-    {
-        vis[node] = color;
-        
-        for(auto nbr: adj[node])
-        {
-            if(vis[nbr]==0)
-            {    
-                bool check =  f(nbr,node,adj,vis,3-color);
-                if(!check)
-                    return false;
-            }
-            else if(vis[node]==vis[nbr])
-                    return false;
-            
-        }
-        return true;
-    }
+    
     bool dfs(int node,int c,vector<int>&vis,vector<int>&col,vector<vector<int>>&adj)
     {
         vis[node]=1;
