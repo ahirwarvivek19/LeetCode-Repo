@@ -48,7 +48,7 @@ public:
             }
         }
         
-        if(ans==0||ans==INT_MAX)
+        if(ans==0)
             return -1;
         else return ans;
     }
