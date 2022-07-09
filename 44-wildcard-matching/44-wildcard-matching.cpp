@@ -3,7 +3,7 @@ class Solution
 public:
     bool isAllStars(string &S1, int i)
     {
-        for (int j = 0; j <= i; j++)
+        for (int j = 0; j < i; j++)
         {
             if (S1[j] != '*')
                 return false;
@@ -15,22 +15,22 @@ public:
     {
 
         // Base Conditions
-        if (i < 0 && j < 0)
+        if (i <= 0 && j <= 0)
             return true;
-        if (i < 0 && j >= 0)
+        if (i <= 0 && j > 0)
             return false;
-        if (j < 0 && i >= 0)
+        if (j <= 0 && i > 0)
             return isAllStars(S1, i);
 
         if (dp[i][j] != -1)
             return dp[i][j];
 
-        if (S1[i] == S2[j] || S1[i] == '?')
+        if (S1[i-1] == S2[j-1] || S1[i-1] == '?')
             return dp[i][j] = f(S1, S2, i - 1, j - 1, dp);
 
         else
         {
-            if (S1[i] == '*')
+            if (S1[i-1] == '*')
                 return dp[i][j] = (f(S1, S2, i - 1, j, dp) || f(S1, S2, i, j - 1, dp));
             else
                 return dp[i][j] = false;
@@ -67,6 +67,6 @@ public:
 //         }
 
 //         return dp[n][m];
-        return f(p, s,m-1,n-1, dp);
+        return f(p, s,m,n, dp);
     }
 };
